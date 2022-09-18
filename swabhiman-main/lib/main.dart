@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:swabhiman/home_screen.dart';
 import 'package:swabhiman/login_screen.dart';
-
 void main() {
   runApp(const MyApp());
 }
