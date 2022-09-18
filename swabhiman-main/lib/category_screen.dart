@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:swabhiman/profile_screen.dart';
+import 'package:swabhiman/bank.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({Key? key}) : super(key: key);
@@ -81,30 +82,33 @@ class _CategoryScreenState extends State<CategoryScreen> {
               crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),
           children: [
             GestureDetector(
-              child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.deepOrange[50],
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Icon(
-                    Icons.account_balance,
-                    size: 60,
-                    color: Colors.black,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.deepOrange[50],
                   ),
-                  Text(
-                    'Banking Assistance',
-                    style: TextStyle(color: Colors.black, fontSize: 25),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const [
+                      Icon(
+                        Icons.account_balance,
+                        size: 60,
+                        color: Colors.black,
+                      ),
+                      Text(
+                        'Banking Assistance',
+                        style: TextStyle(color: Colors.black, fontSize: 25),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              ),
-              Navigator.of(context).pushReplacement(MaterialPageRoute
-              builder: (BuildContext context)=>)
-            ),
+                ),
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => BankScreen()),
+                  );
+                }),
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),

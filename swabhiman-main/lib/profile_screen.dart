@@ -10,103 +10,206 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.cyan[800],
-        automaticallyImplyLeading: true,
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 3, 115, 125),
+          automaticallyImplyLeading: true,
 
-        //`true` if you want Flutter to automatically add Back Button when needed,
-        //or `false` if you want to force your own back button every where
-
-        leading: IconButton(
-          color: Color.fromARGB(255, 238, 233, 239),
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context, false),
+          //`true` if you want Flutter to automatically add Back Button when needed,
+          //or `false` if you want to force your own back button every where
+          title: Text('Dashboard'),
+          leading: IconButton(
+            color: Color.fromARGB(255, 238, 233, 239),
+            icon: Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pop(context, false),
+          ),
         ),
-      ),
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        body: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/bk.jpeg"), fit: BoxFit.cover)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
 
-          // ignore: prefer_const_literals_to_create_immutables
+            mainAxisAlignment: MainAxisAlignment.center,
 
-          children: <Widget>[
-            ClipRRect(
-              borderRadius: const BorderRadius.all(
-                  Radius.circular(10.0)), //add border radius here
-              child: Image.asset(
-                'assets/right.png',
-                height: 150,
-                width: 150,
-              ), //add image location here //add image location here
-            ),
-            SizedBox(
-              width: 20,
-              height: 20,
-            ),
-            Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              margin: EdgeInsets.symmetric(
-                horizontal: 45.0,
-                vertical: 10,
+            // ignore: prefer_const_literals_to_create_immutables
+
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    "assets/pro.png",
+                    height: 200,
+                    width: 150,
+                  ),
+                  Column(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    color: Color.fromARGB(194, 19, 118, 113),
+                    child: Container(
+                      height: 75,
+                      width: 260,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 25.0,
+                        vertical: 40,
+                      ),
+                      child: Text(
+                        'USER NAME\n xyz@gmail.com',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.0,
+                          color: Color.fromARGB(255, 254, 253, 255),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              color: Color.fromARGB(109, 58, 220, 212),
-              child: ListTile(
+              SizedBox(
+                width: 50,
+                height: 20,
+              ),
+              Card(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                title: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Enter Verification Code',
-                  ),
+                    borderRadius: BorderRadius.circular(10)),
+                margin: EdgeInsets.symmetric(
+                  horizontal: 25.0,
                 ),
-                iconColor: Color.fromARGB(255, 81, 79, 79),
-                onTap: () {},
-              ),
-            ),
-            SizedBox(
-              width: 20,
-              height: 20,
-            ),
-            ConstrainedBox(
-              constraints: BoxConstraints.tightFor(height: 40, width: 150),
-              child: ElevatedButton(
-                child: Text(
-                  "Verify",
-                ),
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.cyan[800],
-                  textStyle: TextStyle(
-                    fontSize: 15,
-                    letterSpacing: 1.0,
-                    fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 246, 248, 249),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  title: Text(
+                    'MY SKILLS',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.0,
+                      color: Color.fromARGB(255, 8, 8, 8),
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              width: 20,
-              height: 20,
-            ),
-            ConstrainedBox(
-              constraints: BoxConstraints.tightFor(height: 40, width: 150),
-              child: ElevatedButton(
-                child: const Text(
-                  "Resend ",
-                ),
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.cyan[800],
-                  textStyle: TextStyle(
-                    fontSize: 15,
-                    letterSpacing: 1.0,
-                    fontWeight: FontWeight.bold,
+              ClipRRect(
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  heightFactor: 1.0,
+                  child: Image.asset(
+                    'assets/skills.png',
                   ),
                 ),
               ),
-            ),
-          ],
+              Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                margin: EdgeInsets.symmetric(
+                  horizontal: 25.0,
+                ),
+                color: Color.fromARGB(255, 246, 248, 249),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  title: Text(
+                    'SCHEMES TAKEN',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.0,
+                      color: Color.fromARGB(255, 8, 8, 8),
+                    ),
+                  ),
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                margin: EdgeInsets.symmetric(
+                  horizontal: 25.0,
+                ),
+                color: Color.fromARGB(109, 58, 220, 212),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  title: Text(
+                    '',
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0,
+                      color: Color.fromARGB(255, 254, 253, 255),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 50,
+                height: 5,
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                margin: EdgeInsets.symmetric(
+                  horizontal: 25.0,
+                ),
+                color: Color.fromARGB(109, 58, 220, 212),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  title: Text(
+                    '',
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0,
+                      color: Color.fromARGB(255, 254, 253, 255),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 50,
+                height: 5,
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                margin: EdgeInsets.symmetric(
+                  horizontal: 25.0,
+                ),
+                color: Color.fromARGB(109, 58, 220, 212),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  title: Text(
+                    '',
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0,
+                      color: Color.fromARGB(255, 254, 253, 255),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 50,
+                height: 5,
+              ),
+            ],
+          ),
         ),
       ),
     );
